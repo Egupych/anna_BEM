@@ -71,7 +71,7 @@ function setScrollIntoViewOptions(top) {
 // Анимация появлении текста, фото
 //::::::::::::::::::::::::::::::::::::::::::::::::::
 
-const animItems = document.querySelectorAll("._anim-items");
+const animItems = document.querySelectorAll("_animation-on-scroll");
 
 if (animItems.length>0) {
 	window.addEventListener("scroll", animOnScroll);
@@ -88,10 +88,10 @@ if (animItems.length>0) {
 			}
 
 			if ((scrollY> animItemOffset - animItemPoint) && scrollY < (animItemOffset + animItemHeight)) {
-				animItem.classList.add('_active');
+				animItem.classList.add('_animation-on-scroll');
 			}  else {
-				if (!animItem.classList.contains('_anim-no')){
-					animItem.classList.remove('_active');
+				if (!animItem.classList.contains('_animation-stop')){
+					animItem.classList.remove('_animation-on-scroll');
 				}
 			}
 		}
@@ -212,16 +212,16 @@ document.addEventListener('DOMContentLoaded', () => {
 // Текст вокруг курсора
 //::::::::::::::::::::::::::::::::::::::::::::::::::
 
-const text = document.querySelector('.text')
-text.innerHTML = text.textContent.replace (/\S/g, "<span>$&</span>");
+// const text = document.querySelector('.text')
+// text.innerHTML = text.textContent.replace (/\S/g, "<span>$&</span>");
 
-const element = document.querySelectorAll("span");
-for (let i=0; i < element.length; i++) {
-	element[i].style.transform = "rotate("+i*12+"deg)"
-}
+// const element = document.querySelectorAll("span");
+// for (let i=0; i < element.length; i++) {
+// 	element[i].style.transform = "rotate("+i*12+"deg)"
+// }
 
-document.addEventListener("mousemove", function(e)
-{
-	text.style.left = e.pageX + "px";
-	text.style.top = e.pageY + "px";
-})
+// document.addEventListener("mousemove", function(e)
+// {
+// 	text.style.left = e.pageX + "px";
+// 	text.style.top = e.pageY + "px";
+// })
